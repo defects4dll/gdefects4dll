@@ -6,10 +6,10 @@
 import sys
 sys.path.append('/home/jiangtianjie/gdefects4dll')
 
-sys.path.insert(0,'../data')
+sys.path.insert(0, '../data')
 import argparse
 import os
-from pytorch_detail import get_dict
+from data.pytorch_detail import get_dict
 # python runTest.py torch-61345 buggy
 # docker exec -it pytorch-10.2-7 /bin/bash /home/torch-61345/torch-61345-buggy.sh
 # docker exec -it gdefects4dll-rebug" /bin/bash /test/torch-61345/torch-61345-buggy.sh
