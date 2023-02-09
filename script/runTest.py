@@ -9,7 +9,7 @@ sys.path.append('/home/jiangtianjie/gdefects4dll')
 sys.path.insert(0, '../data')
 import argparse
 import os
-from data.pytorch_detail import get_dict
+from data import pytorch_detail
 # python runTest.py torch-61345 buggy
 # docker exec -it pytorch-10.2-7 /bin/bash /home/torch-61345/torch-61345-buggy.sh
 # docker exec -it gdefects4dll-rebug" /bin/bash /test/torch-61345/torch-61345-buggy.sh
@@ -19,7 +19,7 @@ from data.pytorch_detail import get_dict
 def run_test(params):
     bugId = params.bugId
     version = params.version
-    bug_dict = get_dict(bugId)
+    bug_dict = pytorch_detail.get_dict(bugId)
     print(bug_dict)
     cmd = "docker exec - it " + bug_dict.get("gdefects4dll-rebug") + " /bin/bash /test/" + bugId + "/" + bugId + "-" + version + ".sh"
     result = os.system(cmd)
