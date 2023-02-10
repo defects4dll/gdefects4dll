@@ -20,13 +20,13 @@ def run_test(params):
     version = params.version
     bug_dict = pytorch_detail.get_dict(bugId)
     print(bug_dict)
-    cmd = "docker exec - it " + str(bug_dict.get("container_id")) + " /bin/bash /test/" + bugId + "/" + bugId + "-" + version + ".sh"
+    cmd = "docker exec -it " + str(bug_dict.get("container_id")) + " /bin/bash /test/" + bugId + "/" + bugId + "-" + version + ".sh"
     result = os.system(cmd)
     print(result)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Experiments Script For runTest")
-    parser.add_argument("--bugId", type=str, default="torch-61754", help="see bugId")
+    parser.add_argument("--bugId", type=str, default="torch-61345", help="see bugId")
     parser.add_argument("--version", type=str, default="buggy", choices=["buggy", "fix"])
     params = parser.parse_args()
     run_test(params)
